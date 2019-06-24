@@ -6,4 +6,4 @@ class Book(TimeStampedModel):
   title = models.CharField()
   author = models.CharField()
   readers = models.ManyToManyField(Reader, default=None, blank=True, null=True)
-  recommender = models.ForeignKey(Reader)
+  recommender = models.ForeignKey(Reader, on_delete=models.CASCADE)
