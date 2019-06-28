@@ -1,7 +1,7 @@
 <html>
   <body>
     <h1>READATHON!!!</h1>
-    <h3>Participants</h3>
+    <h3><a href="readers">Participants</a></h3>
     <table>
       <tr>
         <th>Name</th>
@@ -14,5 +14,17 @@
         </tr>
       {% endfor %}
     </table>
-  </body>
+    <h3><a href="books">Library</a></h3>
+    <table>
+      <tr>
+        <th>Title</th>
+        <th>Author</th>
+      </tr>
+      {% for book in library %}
+        <tr>
+          <td>{{book.title}}</td>
+          <td>{{book.author}}</td>
+        </tr>
+      {% endfor %}
+    </table>  </body>
 </html>
