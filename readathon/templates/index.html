@@ -1,0 +1,18 @@
+<html>
+  <body>
+    <h1>READATHON!!!</h1>
+    <h3>Participants</h3>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Current Book</th>
+      </tr>
+      {% for reader in participants %}
+        <tr>
+          <td>{{reader.name}}</td>
+          <td>{{reader.current_book}}</td>
+        </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>

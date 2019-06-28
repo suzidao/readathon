@@ -1,9 +1,10 @@
 from django.db import models
 from readathon.core.models import TimeStampedModel
-from readathon.readers.models import Reader
+from readathon.readers.models import Reader, BookList
 
 class Book(TimeStampedModel):
-  title = models.CharField()
-  author = models.CharField()
-  readers = models.ManyToManyField(Reader, default=None, blank=True, null=True)
-  recommender = models.ForeignKey(Reader, on_delete=models.CASCADE)
+  title = models.TextField()
+  author = models.TextField()
+  recommender = models.ForeignKey(Reader, on_delete=models.CASCADE, related_name='recommender')
+  
+  book_list = models.ForeignKey(BookList, on_delete=models.CASCADE)

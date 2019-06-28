@@ -1,3 +1,8 @@
 from django.shortcuts import render
 
-# Create your views here.
+from .models import Reader
+
+def index(request):
+  participants = Reader.objects.order_by('name')
+  context = {'participants': participants}
+  return render(request, 'readers/index.html', context)

@@ -1,0 +1,14 @@
+<h1>LIBRARY</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Author</th>
+  </tr>
+  {% for book in library %}
+    <tr>
+      <td>{{book.title}}</td>
+      <td>{{book.author}}</td>
+    </tr>
+  {% endfor %}
+</table>
