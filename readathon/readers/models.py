@@ -2,8 +2,5 @@ from django.db import models
 from readathon.core.models import TimeStampedModel
 
 class Reader(TimeStampedModel):
-  name = models.TextField()
-  target = models.TextField(null=True, blank=True, default=None)
-
-class BookList(models.Model):
-  reader = models.ForeignKey(Reader, on_delete=models.CASCADE)
+  name = models.CharField(max_length = 200)
+  target = models.IntegerField(default=0, blank=True, null=True)

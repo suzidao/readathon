@@ -2,29 +2,38 @@
   <body>
     <h1>READATHON!!!</h1>
     <h3><a href="readers">Participants</a></h3>
-    <table>
-      <tr>
-        <th>Name</th>
-        <th>Current Book</th>
-      </tr>
-      {% for reader in participants %}
+    {% if participants %}
+      <table>
         <tr>
-          <td>{{reader.name}}</td>
-          <td>{{reader.current_book}}</td>
+          <th>Name</th>
+          <th>Current Book</th>
         </tr>
-      {% endfor %}
-    </table>
+        {% for reader in participants %}
+          <tr>
+            <td>{{reader.name}}</td>
+            <td>{{reader.current_book}}</td>
+          </tr>
+        {% endfor %}
+      </table>
+    {% else %}
+      There are currently no participants :(
+    {% endif %}
     <h3><a href="books">Library</a></h3>
-    <table>
-      <tr>
-        <th>Title</th>
-        <th>Author</th>
-      </tr>
-      {% for book in library %}
+    {% if library %}
+      <table>
         <tr>
-          <td>{{book.title}}</td>
-          <td>{{book.author}}</td>
+          <th>Title</th>
+          <th>Author</th>
         </tr>
-      {% endfor %}
-    </table>  </body>
+        {% for book in library %}
+          <tr>
+            <td>{{book.title}}</td>
+            <td>{{book.author}}</td>
+          </tr>
+        {% endfor %}
+      </table>
+    {% else %}
+      The library is empty D:
+    {% endif %}
+  </body>
 </html>

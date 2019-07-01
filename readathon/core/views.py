@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from readathon.readers.models import Reader, BookList
+from readathon.readers.models import Reader
 from readathon.books.models import Book
 
 def index(request):
