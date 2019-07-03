@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from .models import Book
 from .forms import BookForm
@@ -9,6 +9,14 @@ def index(request):
   return render(request, 'books/index.html', context)
 
 def add_book(request):
-  form = BookForm()
+  if request.method == 'POST':
+    form = BookForm(request.POST)
+    if form.is_valid():
+      book = form.save(commit=False)
+      book.save()
+      return redirect('/books')
+  else:
+    form = BookForm()
+  
   context = {'form': form}
   return render(request, 'books/add.html', context)  

@@ -1,16 +1,20 @@
 <h1>PARTICIPANTS</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Current Book</th>
-  </tr>
-  {% for reader in participants %}
+{% if participants %}
+  <table>
     <tr>
-      <td>{{reader.name}}</td>
-      <td>{{reader.current_book}}</td>
+      <th>Name</th>
+      <th>Current Book</th>
     </tr>
-  {% endfor %}
-</table>
-
-<a href="/">home</a>
+    {% for reader in participants %}
+      <tr>
+        <td>{{reader.name}}</td>
+        <td>{{reader.current_book}}</td>
+      </tr>
+    {% endfor %}
+  </table>
+{% else %}
+  No participants have registered yet :( <a href="readers/register">Be the first</a>!
+{% endif %}
+<br />
+<a href="/">home</a> | <a href="register">register</a>

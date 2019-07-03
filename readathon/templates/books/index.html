@@ -1,16 +1,20 @@
 <h1>LIBRARY</h1>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Author</th>
-  </tr>
-  {% for book in library %}
+{% if library %}
+  <table>
     <tr>
-      <td>{{book.title}}</td>
-      <td>{{book.author}}</td>
+      <th>Title</th>
+      <th>Author</th>
     </tr>
-  {% endfor %}
-</table>
-
-<a href="/">home</a>
+    {% for book in library %}
+      <tr>
+        <td>{{book.title}}</td>
+        <td>{{book.author}}</td>
+      </tr>
+    {% endfor %}
+  </table>
+{% else %}
+  The library is empty D: Consider <a href="books/add">adding some books</a>.
+{% endif %}
+<br />
+<a href="/">home</a> | <a href="add">add a book</a>
